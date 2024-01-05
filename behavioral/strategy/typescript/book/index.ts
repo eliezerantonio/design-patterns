@@ -8,13 +8,13 @@ class RoadStrategy implements RouteStrategy {
   }
 }
 
-class WalkingStratey implements RouteStrategy {
+class WalkingStrategy implements RouteStrategy {
   buildRoute(origin: string, destination: string): string {
     return `Walking route fromm ${origin} to ${destination}`;
   }
 }
 
-class PublicTransporteStratey implements RouteStrategy {
+class PublicTransportStrategy implements RouteStrategy {
   buildRoute(origin: string, destination: string): string {
     return `public transporte route from ${origin} to ${destination}`;
   }
@@ -41,8 +41,8 @@ const navigator = new Navigator();
 navigator.setRouteStrategy(new RoadStrategy());
 console.log(navigator.buildRoute("City A", "City B"));
 
-navigator.setRouteStrategy(new WalkingStratey());
+navigator.setRouteStrategy(new WalkingStrategy());
 console.log(navigator.buildRoute("Park X", "Moseum B"));
 
-navigator.setRouteStrategy(new PublicTransporteStratey());
+navigator.setRouteStrategy(new PublicTransportStrategy());
 console.log(navigator.buildRoute("Station A", "Station B"));

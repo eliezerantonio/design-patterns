@@ -16,7 +16,7 @@ class WalkingStrategy implements RouteStrategy {
   }
 }
 
-class publicTransporteStrategy implements RouteStrategy {
+class PublicTransportStrategy implements RouteStrategy {
   @override
   String buildRoute(String origin, String destination) {
     return "public transporte route from ${origin} to ${destination}";
@@ -37,4 +37,18 @@ class Navigator {
       return "No route strategy set";
     }
   }
+}
+
+void main() {
+  final navigator = Navigator();
+ 
+ navigator.setRouteStrategy(new RoadStrategy());
+  print(navigator.buildRoute("City A", "City B"));
+
+  navigator.setRouteStrategy(new WalkingStrategy());
+  print(navigator.buildRoute("Park X", "Moseum B"));
+
+  navigator.setRouteStrategy(new PublicTransportStrategy());
+  print(navigator.buildRoute("Station A", "Station B"));
+
 }
